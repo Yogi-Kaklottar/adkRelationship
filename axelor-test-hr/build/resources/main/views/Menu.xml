@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <menuitem name="menu-hr-employee" order="-100" title="All Employee" icon="fa-book" icon-background="green" />
+
+<!--  employee menu -->
+  <menuitem title="Employees" name="menu-Employee-all"   parent="menu-hr-employee" action="employee.all" />
+  <action-view name="employee.all"    model="com.axelor.hr.db.Employee" title="employees">
+    <view type="grid" name="employee-grid"/>
+    <view type="form" name="employee-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- department menu -->
+
+  <menuitem title="Department" name="menu-Department-all"   parent="menu-hr-employee" action="department.all" />
+  <action-view name="department.all"    model="com.axelor.hr.db.Department" title="departments">
+    <view type="grid" name="department-grid"/>
+    <view type="form" name="department-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- laptop menu -->
+
+  <menuitem title="laptop" name="menu-Laptop-all"   parent="menu-hr-employee" action="laptop.all" />
+  <action-view name="laptop.all"    model="com.axelor.hr.db.Laptop" title="Laptop">
+    <view type="grid" name="laptop-grid"/>
+    <view type="form" name="laptop-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- task menu -->
+<menuitem title="task" name="menu-task-all"   parent="menu-hr-employee" action="task.all" />
+  <action-view name="task.all"    model="com.axelor.hr.db.Task" title="task">
+    <view type="grid" name="task-grid"/>
+    <view type="form" name="task-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+<!-- address menu -->
+
+<menuitem title="addres" name="menu-addres-all"   parent="menu-hr-employee" action="addres.all" />
+  <action-view name="addres.all"    model="com.axelor.hr.db.Addres" title="addres">
+    <view type="grid" name="addres-grid"/>
+    <view type="form" name="addres-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+</object-views>

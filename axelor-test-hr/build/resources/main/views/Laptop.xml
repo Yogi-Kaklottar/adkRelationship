@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+  <grid name="laptop-grid" title="laptop List" model="com.axelor.hr.db.Laptop">
+    <field name="name" />
+
+  </grid>
+
+  <form name="laptop-form" title="Laptop" model="com.axelor.hr.db.Laptop">
+    <panel title="Overview">
+      <field name="name" colSpan="6"/>
+    </panel>
+  </form>
+  </object-views>
