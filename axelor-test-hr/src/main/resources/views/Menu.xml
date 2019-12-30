@@ -42,6 +42,7 @@
   <action-view name="addres.all"    model="com.axelor.hr.db.Addres" title="addres">
     <view type="grid" name="addres-grid"/>
     <view type="form" name="addres-form"/>
+<!--     <view type="cards" name="employee-cards"/> -->
     <context name="json-enhance" expr="true"/>
   </action-view>
 

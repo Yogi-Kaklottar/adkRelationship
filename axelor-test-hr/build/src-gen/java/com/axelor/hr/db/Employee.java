@@ -3,6 +3,7 @@
  */
 package com.axelor.hr.db;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,28 +13,34 @@ import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
 
 import com.axelor.auth.db.AuditableModel;
+import com.axelor.db.annotations.HashKey;
 import com.axelor.db.annotations.Widget;
 import com.google.common.base.MoreObjects;
 
 @Entity
 @Cacheable
-@Table(name = "HR_EMPLOYEE", indexes = { @Index(columnList = "name"), @Index(columnList = "department"), @Index(columnList = "addres") })
+@Table(name = "HR_EMPLOYEE", indexes = { @Index(columnList = "department"), @Index(columnList = "addres") })
 public class Employee extends AuditableModel {
 
 	@Id
@@ -41,7 +48,21 @@ public class Employee extends AuditableModel {
 	@SequenceGenerator(name = "HR_EMPLOYEE_SEQ", sequenceName = "HR_EMPLOYEE_SEQ", allocationSize = 1)
 	private Long id;
 
+	@HashKey
+	@NotNull
+	@Column(unique = true)
 	private String name;
+
+	private LocalDate dateofbirth;
+
+	@Min(18)
+	@Max(55)
+	private Integer age = 0;
+
+	@Widget(image = true, title = "photo")
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	private byte[] photo;
 
 	@Widget(massUpdate = true)
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -84,6 +105,30 @@ public class Employee extends AuditableModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public LocalDate getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(LocalDate dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
+	public Integer getAge() {
+		return age == null ? 0 : age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
 	}
 
 	public Department getDepartment() {
@@ -219,12 +264,14 @@ public class Employee extends AuditableModel {
 			return Objects.equals(this.getId(), other.getId());
 		}
 
-		return false;
+		if (!Objects.equals(getName(), other.getName())) return false;
+
+		return true;
 	}
 
 	@Override
 	public int hashCode() {
-		return 31;
+		return Objects.hash(1258113742, this.getName());
 	}
 
 	@Override
@@ -232,6 +279,8 @@ public class Employee extends AuditableModel {
 		return MoreObjects.toStringHelper(this)
 			.add("id", getId())
 			.add("name", getName())
+			.add("dateofbirth", getDateofbirth())
+			.add("age", getAge())
 			.omitNullValues()
 			.toString();
 	}

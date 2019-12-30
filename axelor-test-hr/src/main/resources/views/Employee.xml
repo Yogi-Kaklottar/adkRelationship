@@ -8,15 +8,38 @@
   <field name="laptop"></field>
   <field name="task"></field>
   <field name="addres"></field>
+  <field name="dateofbirth"></field>
+  <field name="age" onChange="data"></field>
+
   </grid>
 
-  <form name="employee-form" title="Employee" model="com.axelor.hr.db.Employee">
+  <form name="employee-form" title="Employee list" model="com.axelor.hr.db.Employee">
     <panel title="Overview">
+    <field name="photo" colSpan="3" showTitle="false"></field>
       <field name="name" colSpan="6"/>
-   <field name="department"></field>
-    <field name="laptop"></field>
-    <field name="task"></field>
-     <field name="addres"></field>
+   <field name="department" colSpan="12"></field>
+    <field name="laptop" colSpan="12"></field>
+    <field name="task" colSpan="6"></field>
+     <field name="addres" colSpan="6"></field>
+     <field name="dateofbirth" colSpan="6"></field>
+     <field name="age" colSpan="6"></field>
+
+
     </panel>
   </form>
+
+<!--   <cards name="employee-cards" title="employess" model="com.axelor.hr.db.Employee" orderBy="fullName"> -->
+<!--     <field name="name" /> -->
+<!--     <field name="department" /> -->
+<!--     <field name="photoImage"/> -->
+<!--     <template><![CDATA[ -->
+<!--       <div class="span4 card-image"> -->
+<!--         <img ng-if="photoImage" ng-src="{{$image(null, 'image')}}"> -->
+<!--         <img ng-if="!photoImage" src="img/user.png"> -->
+
+<!--       </div> -->
+
+<!--     ]]></template> -->
+<!--   </cards> -->
+
   </object-views>

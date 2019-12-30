@@ -3,6 +3,7 @@
  */
 package com.axelor.hr.db;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Basic;
@@ -41,6 +42,8 @@ public class Addres extends AuditableModel {
 	private String area;
 
 	private String pin;
+
+	private LocalDateTime entrytime;
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "addres", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Employee employee;
@@ -87,6 +90,14 @@ public class Addres extends AuditableModel {
 		this.pin = pin;
 	}
 
+	public LocalDateTime getEntrytime() {
+		return entrytime;
+	}
+
+	public void setEntrytime(LocalDateTime entrytime) {
+		this.entrytime = entrytime;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}
@@ -129,6 +140,7 @@ public class Addres extends AuditableModel {
 			.add("street", getStreet())
 			.add("area", getArea())
 			.add("pin", getPin())
+			.add("entrytime", getEntrytime())
 			.omitNullValues()
 			.toString();
 	}

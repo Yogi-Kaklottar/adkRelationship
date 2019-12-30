@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
   <grid name="addres-grid" title="addres List" model="com.axelor.hr.db.Addres">
     <field name="street"></field>
-  <field name="area"></field>
-  <field name="pin"></field>
+    <field name="area"></field>
+    <field name="pin"></field>
+    <field name="entrytime"></field>
   </grid>
 
-  <form name="task-form" title="Laptop" model="com.axelor.hr.db.Task">
+  <form name="addres-form" title="addres" model="com.axelor.hr.db.Addres">
     <panel title="Overview">
-       <field name="street" colSpan="12"></field>
-  <field name="area" colSpan="12"></field>
-  <field name="pin" colSpan="12"></field>
+      <field name="street" colSpan="12"></field>
+      <field name="area" colSpan="12"></field>
+      <field name="pin" colSpan="12"></field>
+      <field name="entrytime" colSpan="12"></field>
     </panel>
   </form>
-  </object-views>
+</object-views>

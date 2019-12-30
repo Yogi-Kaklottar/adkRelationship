@@ -6,8 +6,10 @@
 
   <module name="hr" package="com.axelor.hr.db" />
   <entity name="Employee" cacheable="true">
-  <string name="name" />
-
+  <string name="name" required="true" unique="true"/>
+  <date name="dateofbirth"></date>
+  <integer name="age" min="18" max="55"></integer>
+  <binary name="photo" title="photo" image="true"></binary>
   <many-to-one name="department" ref="com.axelor.hr.db.Department" massUpdate="true"/>
   <one-to-many name="laptop" ref="com.axelor.hr.db.Laptop" mappedBy="employee"/>
   <many-to-many name="task" ref="com.axelor.hr.db.Task"/>

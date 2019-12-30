@@ -9,6 +9,13 @@
       <string name="street" namecolumn="true"></string>
       <string name="area"></string>
       <string name="pin"></string>
+      <datetime name="entrytime"></datetime>
+<!--       <string name="fulladd" namecolumn="true" search="street,area,pin"><![CDATA[ -->
+<!--       if(street==null && area==null && pin==null) -->
+<!--           return null; -->
+<!--       else -->
+<!--             return street + "/" + area + "/" + pin + ""; -->
+<!--       ]]></string> -->
     <one-to-one name="employee" ref="com.axelor.hr.db.Employee" mappedBy="addres"/>
   </entity>
 
