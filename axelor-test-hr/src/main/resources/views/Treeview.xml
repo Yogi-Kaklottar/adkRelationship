@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+  <tree name="employee-tree-view" title="Employee-tree">
+     <column name="name" type="string" />
+
+     <node model="com.axelor.hr.db.Employee" >
+       <field name="name" as="name"/>
+     </node>
+      <node model="com.axelor.hr.db.Laptop" parent="employee" draggable="true">
+       <field name="name" as="name"/>
+     </node>
+
+  </tree>
+  </object-views>

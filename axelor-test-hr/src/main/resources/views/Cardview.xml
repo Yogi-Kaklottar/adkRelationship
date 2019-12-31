@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+    <cards name="employee-card-view" title="employess" model="com.axelor.hr.db.Employee" orderBy="name">
+    <field name="name" />
+    <field name="department" />
+    <field name="photo"/>
+    <field name="dateofbirth"/>
+    <field name="age"/>
+    <template><![CDATA[
+     <div class="span4 card-image">
+     <img  ng-src="{{$image(photo, 'photo')}}">
+     <strong>{{name}}</strong>
+     </div>
+    <div class="span8">
+      <department>
+        <span>{{department.name}}</span></br>
+       <span> Date of Birth :{{dateofbirth}}</span></br>
+       <span> age:{{age}}</span></br>
+      </department>
+    </div>
+     ]]></template>
+  </cards>
+
+
+  </object-views>

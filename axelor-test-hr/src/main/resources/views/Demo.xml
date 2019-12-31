@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+
+
+<!--   grid view -->
+  <grid name="demo-grid" title="demo List"
+    model="com.axelor.app.db.Demo">
+    <field name="name"></field>
+    <field name="status" />
+    <field name="charge" />
+  </grid>
+
+
+<!-- form view -->
+  <form name="demo-form" title="Demo List"
+    model="com.axelor.app.db.Demo">
+    <panel title="Overview">
+
+      <field name="name" colSpan="12"></field>
+      <field name="status"/>
+      <field name="charge"/>
+    </panel>
+  </form>
+
+<!-- tree  view -->
+  <tree name="app-demo-tree" title="demo list">
+  <column name="name" type="string"/>
+  <column name="charge" type="decimal"/>
+
+  <node model="com.axelor.app.db.Demo" draggable="true">
+    <field name="name" as="name"/>
+
+  </node>
+  <node model="com.axelor.app.db.Demo"  draggable="true" >
+    <field name="name" as="name" />
+    <field name="charge" as="charge" />
+  </node>
+
+  </tree>
+</object-views>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
 
-  <menuitem name="menu-hr-employee" order="-100" title="All Employee" icon="fa-book" icon-background="green" />
+  <menuitem name="menu-hr-employee" order="-100" title="All Employee" icon="fa-users" icon-background="blue" />
 
 <!--  employee menu -->
   <menuitem title="Employees" name="menu-Employee-all"   parent="menu-hr-employee" action="employee.all" />
@@ -43,6 +43,40 @@
     <view type="grid" name="addres-grid"/>
     <view type="form" name="addres-form"/>
 <!--     <view type="cards" name="employee-cards"/> -->
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- test class listener -->
+
+<menuitem title="test" name="menu-test-all"   parent="menu-hr-employee" action="test.all" />
+  <action-view name="test.all"    model="com.axelor.app.db.Test" title="test">
+    <view type="grid" name="test-grid"/>
+    <view type="form" name="test-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- demo class Listener -->
+<menuitem title="demo" name="menu-demo-all"   parent="menu-hr-employee" action="demo.all" />
+  <action-view name="demo.all"    model="com.axelor.app.db.Demo" title="test">
+    <view type="grid" name="demo-grid"/>
+<!--     <view type="tree" name="app-demo-tree"/> -->
+    <view type="form" name="demo-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!-- employee tree view -->
+
+  <menuitem title="View" name="menu-emp-all"   parent="menu-hr-employee" action="empl.all" />
+  <action-view name="empl.all"    model="com.axelor.app.db.Employee" title="tree-view">
+    <view type="tree" name="employee-tree-view" />
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+<!--  employee card view -->
+
+  <menuitem title="card-view" name="menu-emp-card-all"   parent="menu-hr-employee" action="emplcard.all" />
+  <action-view name="emplcard.all"    model="com.axelor.hr.db.Employee" title="card-view">
+    <view type="cards" name="employee-card-view" />
     <context name="json-enhance" expr="true"/>
   </action-view>
 
