@@ -80,4 +80,13 @@
     <context name="json-enhance" expr="true"/>
   </action-view>
 
+<!--   city menu -->
+   <menuitem title="city-view" name="menu-city-all"   parent="menu-hr-employee" action="city.all" />
+  <action-view name="city.all"    model="com.axelor.hr.db.City" title="city-view">
+    <view type="grid" name="city-grid" />
+    <view type="form" name="city-form" />
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+
 </object-views>

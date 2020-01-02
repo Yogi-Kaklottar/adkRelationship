@@ -1,0 +1,84 @@
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+  <grid name="city-grid" title="city List"
+    model="com.axelor.hr.db.City">
+     <field name="display"/>
+    <field name="country"></field>
+    <field name="state"></field>
+    <field name="name"></field>
+    <button name="CountryBtn" title="CountryAll"
+      onClick="action.hr.country.all" />
+    <button name="StateBtn" title="StateAll"
+      onClick="action.hr.state.all" />
+  </grid>
+
+
+  <form name="city-form" title="city list" model="com.axelor.hr.db.City" onSave="action.onSave.alert" onNew="action-attrs-onnew-city-form">
+    <panel title="Overview">
+     <field name="display" type="boolean"/>
+      <field name="country" colSpan="12"  onChange="city.attrs.country.select.state" ></field>
+      <field name="state" colSpan="12" onChange="action-attrs-state-change" onSelect=""></field>
+      <field name="name" colSpan="12" readOnlyIf="display"/>
+      <button name="CountryBtn" title="CountryAll"
+        onClick="action.hr.country.all" />
+      <button name="StateBtn" title="StateAll"
+        onClick="action.hr.state.all" />
+    </panel>
+  </form>
+
+<!-- onew method -->
+ <action-attrs name="action-attrs-onnew-city-form">
+    <attribute for="display" name="value"  expr="eval:true" />
+  </action-attrs>
+  <!-- country action view -->
+  <action-view name="action.hr.country.all"
+    model="com.axelor.hr.db.Country" title="countries">
+    <view type="grid" name="country-grid" />
+    <view type="form" name="country-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+  <!-- state action view -->
+  <action-view name="action.hr.state.all"
+    model="com.axelor.hr.db.State" title="States">
+    <view type="grid" name="state-grid" />
+    <view type="form" name="state-form" />
+    <context name="json-enhance" expr="true" />
+  </action-view>
+
+
+  <!-- $city by default Country set to Country field[dummy not used] -->
+  <action-record name="city.form.action.record"
+    model="com.axelor.hr.db.Country">
+    <field name="country" expr="#{__self__.name}" />
+  </action-record>
+
+
+  <!-- selection for country wise state -->
+  <action-attrs name="city.attrs.country.select.state">
+    <attribute for="state" name="domain"
+      expr="self.country=:country" if="!__this__.display" />
+  </action-attrs>
+
+
+  <!-- Action for onSave -->
+  <action-validate name="action.onSave.alert">
+    <alert message="Your Record Will Be Saved."/>
+  </action-validate>
+
+  <!-- Action for onSave -->
+  <action-validate name="action.onchange.alert">
+    <alert message="Your Record Will Be changed." />
+  </action-validate>
+<!-- Action state change Attrs -->
+  <action-attrs name="action-attrs-state-change">
+          <attribute name="value" for="name" expr="eval: __repo__(City).all().filter('self.state = ?',state).fetchOne().name"/>
+  </action-attrs>
+
+<!-- Action for display change -->
+    <action-attrs name="action-attrs-display-change">
+          <attribute name="readonly" for="name" expr="eval:__this__.display"/>
+  </action-attrs>
+
+</object-views>

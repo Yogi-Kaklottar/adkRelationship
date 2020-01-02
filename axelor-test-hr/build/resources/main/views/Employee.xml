@@ -10,10 +10,10 @@
   <field name="addres"></field>
   <field name="dateofbirth"></field>
   <field name="age" onChange="data"></field>
-
+  <field name="curruntdate" />
   </grid>
 
-  <form name="employee-form" title="Employee list" model="com.axelor.hr.db.Employee">
+  <form name="employee-form" title="Employee list" model="com.axelor.hr.db.Employee" onNew="action.record.employee.onnew.setdate">
     <panel title="Overview">
     <field name="photo" colSpan="3" showTitle="false"></field>
       <field name="name" colSpan="6"/>
@@ -23,10 +23,16 @@
      <field name="addres" colSpan="6"></field>
      <field name="dateofbirth" colSpan="6"></field>
      <field name="age" colSpan="6"></field>
-
-
+     <field name="curruntdate" readonly="true" />
     </panel>
   </form>
 
 
+
+<!-- on load  set date -->
+
+  <action-record name="action.record.employee.onnew.setdate"
+    model="com.axelor.hr.db.Employee">
+    <field name="curruntdate" expr="#{__date__}" />
+  </action-record>
   </object-views>

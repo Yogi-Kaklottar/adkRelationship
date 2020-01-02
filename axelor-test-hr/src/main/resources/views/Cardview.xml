@@ -16,7 +16,7 @@
     <div class="span8">
       <department>
         <span>{{department.name}}</span></br>
-       <span> Date of Birth :{{dateofbirth}}</span></br>
+       <span> Date of Birth :{{dateofbirth|date: 'dd-MM-yyyy'}}</span></br>
        <span> age:{{age}}</span></br>
       </department>
     </div>

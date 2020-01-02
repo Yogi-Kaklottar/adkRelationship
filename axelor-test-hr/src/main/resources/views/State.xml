@@ -1,0 +1,27 @@
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+  <grid name="state-grid" title="state List" model="com.axelor.hr.db.State">
+    <field name="country"/>
+    <field name="name"/>
+    <button name="CountryBtn" title="CountryAll" onClick="action.hr.country.all"/>
+  </grid>
+
+  <form name="state-form" title="state list" model="com.axelor.hr.db.State">
+    <panel title="Overview">
+       <field name="country"/>
+      <field name="name"/>
+      <button name="CountryBtn" title="CountryAll" onClick="action.hr.country.all"/>
+    </panel>
+  </form>
+
+
+ <!--  country action view -->
+<action-view name="action.hr.country.all"    model="com.axelor.hr.db.Country" title="countries">
+    <view type="grid" name="country-grid"/>
+    <view type="form" name="country-form"/>
+    <context name="json-enhance" expr="true"/>
+  </action-view>
+
+
+</object-views>

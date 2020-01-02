@@ -64,6 +64,8 @@ public class Employee extends AuditableModel {
 	@Basic(fetch = FetchType.LAZY)
 	private byte[] photo;
 
+	private LocalDate curruntdate;
+
 	@Widget(massUpdate = true)
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Department department;
@@ -129,6 +131,14 @@ public class Employee extends AuditableModel {
 
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
+	}
+
+	public LocalDate getCurruntdate() {
+		return curruntdate;
+	}
+
+	public void setCurruntdate(LocalDate curruntdate) {
+		this.curruntdate = curruntdate;
 	}
 
 	public Department getDepartment() {
@@ -281,6 +291,7 @@ public class Employee extends AuditableModel {
 			.add("name", getName())
 			.add("dateofbirth", getDateofbirth())
 			.add("age", getAge())
+			.add("curruntdate", getCurruntdate())
 			.omitNullValues()
 			.toString();
 	}
