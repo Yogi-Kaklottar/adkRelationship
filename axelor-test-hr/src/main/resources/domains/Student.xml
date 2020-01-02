@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
+   <module name="hr" package="com.axelor.hr.db" />
+  <entity name="Student" cacheable="true">
+  <string name="name" required="true" unique="true"/>
+ <integer name="marks1" min="0" max="100"></integer>
+ <integer name="marks2" min="0" max="100"></integer>
+ <integer name="marks3" min="0" max="100"></integer>
+ <integer name="total"  min="0" max="300"></integer>
+ <decimal name="persantage" precision="5" scale="2"></decimal>
+ <string name="grade"></string>
+  </entity>
+</domain-models>

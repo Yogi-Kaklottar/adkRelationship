@@ -13,7 +13,7 @@
   <field name="curruntdate" />
   </grid>
 
-  <form name="employee-form" title="Employee list" model="com.axelor.hr.db.Employee" onNew="action.record.employee.onnew.setdate">
+  <form name="employee-form" title="Employee list" model="com.axelor.hr.db.Employee" onNew="action.record.employee.onnew.setdate,action-attrs-onnew-date-tital-change">
     <panel title="Overview">
     <field name="photo" colSpan="3" showTitle="false"></field>
       <field name="name" colSpan="6"/>
@@ -35,4 +35,10 @@
     model="com.axelor.hr.db.Employee">
     <field name="curruntdate" expr="#{__date__}" />
   </action-record>
+
+<!--   date tital change -->
+   <action-attrs name="action-attrs-onnew-date-tital-change">
+          <attribute name="title" for="curruntdate" expr="eval:'todaydate'"/>
+  </action-attrs>
+
   </object-views>

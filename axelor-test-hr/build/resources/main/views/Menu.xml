@@ -88,5 +88,12 @@
     <context name="json-enhance" expr="true"/>
   </action-view>
 
+<!--   Student menu -->
+   <menuitem title="student-view" name="menu-student-all"   parent="menu-hr-employee" action="student.all" />
+  <action-view name="student.all"    model="com.axelor.hr.db.Student" title="student-view">
+    <view type="grid" name="student-grid" />
+    <view type="form" name="student-form" />
+    <context name="json-enhance" expr="true"/>
+  </action-view>
 
 </object-views>

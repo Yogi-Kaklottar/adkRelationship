@@ -4,7 +4,7 @@
   <menuitem name="menu-hr-employee" order="-100" title="All Employee" icon="fa-users" icon-background="blue" />
 
 <!--  employee menu -->
-  <menuitem title="Employees" name="menu-Employee-all"   parent="menu-hr-employee" action="employee.all" />
+  <menuitem title="Employees" name="menu-Employee-all"   parent="menu-hr-employee" action="employee.all" tag-style="important"/>
   <action-view name="employee.all"    model="com.axelor.hr.db.Employee" title="employees">
     <view type="grid" name="employee-grid"/>
     <view type="form" name="employee-form"/>
@@ -13,7 +13,7 @@
 
 <!-- department menu -->
 
-  <menuitem title="Department" name="menu-Department-all"   parent="menu-hr-employee" action="department.all" />
+  <menuitem title="Department" name="menu-Department-all"   parent="menu-hr-employee" action="department.all" tag-style="default" />
   <action-view name="department.all"    model="com.axelor.hr.db.Department" title="departments">
     <view type="grid" name="department-grid"/>
     <view type="form" name="department-form"/>
@@ -22,7 +22,7 @@
 
 <!-- laptop menu -->
 
-  <menuitem title="laptop" name="menu-Laptop-all"   parent="menu-hr-employee" action="laptop.all" />
+  <menuitem title="laptop" name="menu-Laptop-all"   parent="menu-hr-employee" action="laptop.all" tag-style="info" />
   <action-view name="laptop.all"    model="com.axelor.hr.db.Laptop" title="Laptop">
     <view type="grid" name="laptop-grid"/>
     <view type="form" name="laptop-form"/>
@@ -30,7 +30,7 @@
   </action-view>
 
 <!-- task menu -->
-<menuitem title="task" name="menu-task-all"   parent="menu-hr-employee" action="task.all" />
+<menuitem title="task" name="menu-task-all"   parent="menu-hr-employee" action="task.all"  tag-style="success"/>
   <action-view name="task.all"    model="com.axelor.hr.db.Task" title="task">
     <view type="grid" name="task-grid"/>
     <view type="form" name="task-form"/>
@@ -38,7 +38,7 @@
   </action-view>
 <!-- address menu -->
 
-<menuitem title="addres" name="menu-addres-all"   parent="menu-hr-employee" action="addres.all" />
+<menuitem title="addres" name="menu-addres-all"   parent="menu-hr-employee" action="addres.all" tag-style="warning"/>
   <action-view name="addres.all"    model="com.axelor.hr.db.Addres" title="addres">
     <view type="grid" name="addres-grid"/>
     <view type="form" name="addres-form"/>
@@ -88,5 +88,12 @@
     <context name="json-enhance" expr="true"/>
   </action-view>
 
+<!--   Student menu -->
+   <menuitem title="student-view" name="menu-student-all"   parent="menu-hr-employee" action="student.all" />
+  <action-view name="student.all"    model="com.axelor.hr.db.Student" title="student-view">
+    <view type="grid" name="student-grid" />
+    <view type="form" name="student-form" />
+    <context name="json-enhance" expr="true"/>
+  </action-view>
 
 </object-views>

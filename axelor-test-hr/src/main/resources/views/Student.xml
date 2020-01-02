@@ -1,0 +1,32 @@
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
+  <grid name="student-grid" title="student List" model="com.axelor.hr.db.Student">
+    <field name="name"></field>
+    <field name="marks1"/>
+    <field name="marks2"/>
+    <field name="marks3"/>
+    <field name="total"/>
+    <field name="persantage"/>
+    <field name="grade"></field>
+  </grid>
+
+  <form name="student-form" title="student list" model="com.axelor.hr.db.Student" onSave="action-attrs-onsave-setresults">
+    <panel title="Overview">
+      <field name="name" colSpan="12"></field>
+       <field name="marks1"/>
+       <field name="marks2"/>
+       <field name="marks3"/>
+    </panel>
+    <panel tital="Summury">
+      <field name="total" readonly="true" />
+      <field name="persantage" readonly="true"/>
+      <field name="grade" readonly="true"></field>
+    </panel>
+  </form>
+
+  <action-method name="action-attrs-onsave-setresults">
+        <call class="com.app.hr.web.StudentController" method="setResult"/>
+  </action-method>
+
+</object-views>
