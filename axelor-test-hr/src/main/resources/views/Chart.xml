@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+ <chart name="student-chart" title="student markshit jpql">
+<!--  <search-fields> -->
+<!--      <field name="total"/> -->
+<!--  </search-fields> -->
+       <dataset type="jpql">
+       <![CDATA[
+           SELECT
+            self.name as name,
+            self.total as total
+        FROM
+            Student self
+       ]]>
+       </dataset>
+         <category key="name" type="text" title="student"/>
+      <series key="total" type="bar" title="marks"/>
+  </chart>
+
+  <chart name="student-sql-chart" title="student-data-sql">
+     <dataset type="sql">
+       <![CDATA[
+           SELECT name,total from hr_student
+       ]]>
+       </dataset>
+         <category key="name" type="text" title="student"/>
+      <series key="total" type="pie" title="marks"/>
+  </chart>
+
+
+
+  </object-views>

@@ -8,9 +8,7 @@ import com.axelor.hr.db.Addres;
 
 public class AddresRepository extends JpaRepository<Addres> {
 
-	public AddresRepository() {
-		super(Addres.class);
-	}
-
+  public AddresRepository() {
+    super(Addres.class);
+  }
 }
-

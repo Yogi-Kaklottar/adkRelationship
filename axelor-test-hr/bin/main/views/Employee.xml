@@ -23,7 +23,7 @@
      <field name="addres" colSpan="6"></field>
      <field name="dateofbirth" colSpan="6"></field>
      <field name="age" colSpan="6"></field>
-     <field name="curruntdate" readonly="true" />
+     <field name="curruntdate" />
     </panel>
   </form>
 

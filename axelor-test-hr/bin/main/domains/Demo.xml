@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+  xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.2.xsd">
+
+  <module name="hr" package="com.axelor.app.db" />
+  <enum name="DemoStatus">
+    <item name="READ"/>
+    <item name="SHOW"/>
+    <item name="COMPLETED"/>
+  </enum>
+  <entity name="Demo">
+    <string name="name"></string>
+    <enum name="status" ref="DemoStatus" />
+    <decimal name="charge" precision="8" scale="2"></decimal>
+    <entity-listener class="com.app.data.DemoListener" />
+  </entity>
+
+</domain-models>

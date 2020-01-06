@@ -1,32 +1,108 @@
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axel or.com/xml/ns/object-views/object-views_5.2.xsd">
-  <grid name="student-grid" title="student List" model="com.axelor.hr.db.Student">
+
+
+  <grid name="student-grid" title="student List"
+    model="com.axelor.hr.db.Student">
     <field name="name"></field>
-    <field name="marks1"/>
-    <field name="marks2"/>
-    <field name="marks3"/>
-    <field name="total"/>
-    <field name="persantage"/>
+    <field name="marks1" />
+    <field name="marks2" />
+    <field name="marks3" />
+    <field name="classname"/>
+    <field name="total" />
+    <field name="persantage" />
     <field name="grade"></field>
+    <field name="greadselect"/>
+    <field name="progress"/>
   </grid>
 
-  <form name="student-form" title="student list" model="com.axelor.hr.db.Student" onSave="action-attrs-onsave-setresults">
+
+
+  <form name="student-form" title="student list"
+    model="com.axelor.hr.db.Student"
+    onSave="action-student-group-onsave">
     <panel title="Overview">
       <field name="name" colSpan="12"></field>
-       <field name="marks1"/>
-       <field name="marks2"/>
-       <field name="marks3"/>
+      <field name="marks1" />
+      <field name="marks2" />
+      <field name="marks3" />
+      <field name="classname"/>
+       <field name="greadselect"/>
+      <field name="progress"/>
     </panel>
     <panel tital="Summury">
       <field name="total" readonly="true" />
-      <field name="persantage" readonly="true"/>
+      <field name="persantage" readonly="true" />
       <field name="grade" readonly="true"></field>
     </panel>
   </form>
 
+<!-- action Group -->
+<action-group name="action-student-group-onsave">
+  <action name="action-student-conditioncheck-onsave-name"/>
+  <action name="action-student-validate-onsave"/>
+  <action name="action-attrs-onsave-setresults"/>
+  <action name="action-student-validate-alert-onsave"/>
+  <action name="action-attrs-onsave-setresults"/>
+
+</action-group>
+
+  <!-- Action valid Example -->
+
+  <action-validate name="action-student-validate-onsave">
+
+    <error message="PLease Enter Correct Marks1"
+      if="!(marks1 &lt; 100 &amp;&amp; marks1 &gt;0)"
+      action="action-attrs-student-validate-marks1-setdefault"></error>
+    <error message="PLease Enter Correct Marks2"
+      if="!(marks2 &lt; 100 &amp;&amp; marks2 &gt;0)"
+      action="action-attrs-student-validate-marks2-setdefault"></error>
+    <error message="PLease Enter Correct Marks3"
+      if="!(marks3 &lt; 100 &amp;&amp; marks3 &gt;0)"
+      action="action-attrs-student-validate-marks3-setdefault"></error>
+
+
+
+
+  </action-validate>
+
+  <!-- action for the perticular validation marks sert default values -->
+
+  <action-attrs
+    name="action-attrs-student-validate-marks1-setdefault">
+    <attribute name="value" for="marks1" expr="eval:1" />
+  </action-attrs>
+  <action-attrs
+    name="action-attrs-student-validate-marks2-setdefault">
+    <attribute name="value" for="marks1" expr="eval:1" />
+  </action-attrs>
+  <action-attrs
+    name="action-attrs-student-validate-marks3-setdefault">
+    <attribute name="value" for="marks1" expr="eval:1" />
+  </action-attrs>
+
+<!-- 	action on save -->
+
+
   <action-method name="action-attrs-onsave-setresults">
-        <call class="com.app.hr.web.StudentController" method="setResult"/>
+    <call class="com.app.hr.web.StudentController" method="setResult" />
   </action-method>
 
+  <action-validate name="action-student-validate-alert-onsave">
+    <alert message="Are you sure data will be stored"/>
+  </action-validate>
+
+<!-- action on save info validation -->
+
+     <action-validate name="action-student-validate-info-onsave">
+    <info message="information"/>
+  </action-validate>
+
+<!-- 	action condition -->
+<action-condition name="action-student-conditioncheck-onsave-name">
+
+  <check field="classname" if="classname==null"
+    error="please enter classname null Not correct."/>
+</action-condition>
 </object-views>

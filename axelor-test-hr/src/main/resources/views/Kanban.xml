@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+  <kanban name="student-kanaban" sequenceBy="greadselect"
+    model="com.axelor.hr.db.Student" columnBy="progress"
+    title="kanabanView">
+    <field name="name" />
+    <field name="total" />
+    <field name="persantage" />
+    <hilite color="danger" if="40>persantage" />
+    <hilite color="success" if="50>persantage" />
+    <hilite color="info" if="60>persantage" />
+    <hilite color="warning" if="70>persantage" />
+    <template><![CDATA[
+        <h3>{{name}}</h3>
+        <h3>{{total}}</h3>
+    ]]></template>
+  </kanban>
+
+<!--   calender view -->
+
+  <calendar name="student-calenderview"
+  title="Employee Birthda"
+  model="com.axelor.hr.db.Employee"
+  colorBy="department"
+  eventStart="dateofbirth"
+  eventStop="curruntdate"
+  eventLength="1">
+  <field name="name" />
+</calendar>
+</object-views>

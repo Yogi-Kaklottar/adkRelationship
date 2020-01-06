@@ -9,16 +9,11 @@ import com.axelor.hr.db.Task;
 
 public class TaskRepository extends JpaRepository<Task> {
 
-	public TaskRepository() {
-		super(Task.class);
-	}
+  public TaskRepository() {
+    super(Task.class);
+  }
 
-	public Task findByName(String name) {
-		return Query.of(Task.class)
-				.filter("self.name = :name")
-				.bind("name", name)
-				.fetchOne();
-	}
-
+  public Task findByName(String name) {
+    return Query.of(Task.class).filter("self.name = :name").bind("name", name).fetchOne();
+  }
 }
-

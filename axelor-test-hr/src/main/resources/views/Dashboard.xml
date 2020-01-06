@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+
+    <dashboard name="dashboard-student-marks" title="Student">
+        <dashlet action="dashlet-student-dashboard-marks" colSpan="12" height="400"/>
+        <dashlet action="dashlet-student-dashboard-marks-sql" colSpan="12" height="400"/>
+    </dashboard>
+    <action-view name="dashlet-student-dashboard-marks" title="student marks" model="com.axelor.hr.db.Student">
+        <view type="chart" name="student-chart"/>
+    </action-view>
+      <action-view name="dashlet-student-dashboard-marks-sql" title="student marks sql" model="com.axelor.hr.db.Student">
+        <view type="chart" name="student-sql-chart"/>
+    </action-view>
+ </object-views>

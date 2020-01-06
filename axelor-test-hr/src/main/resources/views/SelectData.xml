@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.2.xsd">
+<selection name="selection-student-gread">
+    <option value="1">distiction</option>
+    <option value="2">firstclass</option>
+    <option value="3">secondclass</option>
+    <option value="4">pass class</option>
+    <option value="5">fail</option>
+</selection>
+
+<selection name="selection-student-column">
+    <option value="1">very Good</option>
+    <option value="2">Good</option>
+    <option value="3">Bad</option>
+</selection>
+
+</object-views>

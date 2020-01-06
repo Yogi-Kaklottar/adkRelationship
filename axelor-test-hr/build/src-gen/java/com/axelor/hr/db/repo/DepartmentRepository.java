@@ -9,16 +9,11 @@ import com.axelor.hr.db.Department;
 
 public class DepartmentRepository extends JpaRepository<Department> {
 
-	public DepartmentRepository() {
-		super(Department.class);
-	}
+  public DepartmentRepository() {
+    super(Department.class);
+  }
 
-	public Department findByName(String name) {
-		return Query.of(Department.class)
-				.filter("self.name = :name")
-				.bind("name", name)
-				.fetchOne();
-	}
-
+  public Department findByName(String name) {
+    return Query.of(Department.class).filter("self.name = :name").bind("name", name).fetchOne();
+  }
 }
-
